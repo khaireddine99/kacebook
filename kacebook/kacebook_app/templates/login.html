@@ -1,0 +1,10 @@
+{% if form.errors %}
+<p>your username and password didnt match, pls try again</p>
+{% endif %}
+<form action="{% url 'users:login' %}" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button name="submit">login</button>
+  <input type="hidden" name="next" value="{% url 'kacebook_app:index' %}">
+
+</form>

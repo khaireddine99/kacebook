@@ -1,0 +1,17 @@
+{% extends "kacebook_app/base.html" %}
+
+{% block content %}
+  <p>{{u.username}}</p>
+  {% for m in messages %}
+    {% if m.owner == user and m.reciever == u.username %}
+      <p style="color:red">you: {{m}}</p>
+    {% elif m.owner == u and m.reciever == user.username %}
+      <p style="color:blue">{{u}}: {{m}}</p>
+    {% endif %}
+  {% endfor %}
+  <form action="{% url 'kacebook_app:profile' u.id %}" method="post" class="form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">save message</button>
+  </form>
+{% endblock content %}

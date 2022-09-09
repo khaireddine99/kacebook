@@ -1,0 +1,11 @@
+{% extends "kacebook_app/base.html" %}
+
+{% block content %}
+  <p>list of people you can message</p>
+  {% for u in users %}
+    {% if u != user %}
+        <p><a href="{% url 'kacebook_app:profile' u.id %}">{{u}}</a></p>
+    {% endif %}
+
+  {% endfor %}
+{% endblock content %}

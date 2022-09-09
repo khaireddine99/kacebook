@@ -1,0 +1,11 @@
+
+{% extends "kacebook_app/base.html" %}
+
+{% block content %}
+  <p>add a new message here</p>
+  <form action="{% url 'kacebook_app:new_message' %}" method="post" class="form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">save message</button>
+  </form>
+{% endblock content %}

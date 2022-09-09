@@ -1,0 +1,12 @@
+<p><a href="{% url 'kacebook_app:index' %}">KACEBOOK</a></p>
+
+{% if user.is_authenticated %}
+<li><a>Hello, {{ user.username }}</a> </li>
+<li><a href="{% url 'users:logout'%}">logout</a></li>
+{% else %}
+<li><a href="{% url 'users:register'%}">register</a></li>
+<li><a href="{% url 'users:login'%}">login</a></li>
+{% endif %}
+
+{% block content %}
+{% endblock content %}

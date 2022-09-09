@@ -1,0 +1,9 @@
+<title>Register Here</title>
+<form action="{% url 'users:register' %}" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button name="submit">register</button>
+  <input type="hidden" name="next" value="{% url 'kacebook_app:index' %}">
+  
+
+</form>
